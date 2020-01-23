@@ -1,19 +1,24 @@
-"""
-Сочетанием из n элементов по k называется подмножество этих n элементов размера k.
-Два сочетания называются различными, если одно из сочетаний содержит элемент, который не содержит другое.
-Числом сочетаний из n по k называется количество различных сочетаний из n по k. Обозначим это число за C(n, k).
-C(n, k) = C(n - 1, k) + C(n - 1, k - 1).
-"""
-n, k = map(int, input().split())
+from PyQt5 import QtWidgets
+app = QtWidgets.QWidget()
+
+class A:
+    val = 1
+
+    def foo(self):
+        A.val += 2
+
+    def bar(self):
+        self.val += 1
 
 
-def rec(n, k):
-    if k > n:
-        return 0
-    elif k == 0:
-        return 1
-    else:
-        return rec(n - 1, k) + rec(n - 1, k - 1)
+a = A()
+b = A()
 
+a.bar()
+a.foo()
 
-print(rec(n, k))
+c = A()
+
+print(a.val)
+print(b.val)
+print(c.val)
